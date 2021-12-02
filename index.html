@@ -12,7 +12,7 @@
     </style>
 </head>
 <body>
-    <h1>Canvas example</h1>
+    <!-- <h1>Canvas example</h1> -->
     <!-- Drawing Board-->
     <canvas></canvas>
     
@@ -25,7 +25,7 @@
     // canvasBoard.height = 500;
     // canvasBoard.width = 600;
     // //this line gives tool to draw on that canvas
-    // let tool = canvasBoard.getContext("2d");
+    let tool = canvasBoard.getContext("2d");
     // //rectangle build
     // tool.fillStyle = "black";
     // //to give colour to fill
@@ -41,23 +41,33 @@
 
    let body = document.querySelector("body");
 
-   
+   let iX, fX, iY, fY;
 
    //to get the positions when user presses the mouse
    body.addEventListener("mousedown", function(e){
     //    console.log(e);
-    let xPos = e.clientX;
-    let yPos = e.clientY;
-    console.log(xPos, yPos);
+     iX = e.clientX;
+     iY = e.clientY;
+    console.log(iX, iY);
    })
 
    //to get the positions when user leaves the mouse button
    body.addEventListener("mouseup", function(e){
     //    console.log("mouse left");
-    let xPos = e.clientX;
-    let yPos = e.clientY;
-    console.log(xPos, yPos);
+     fX = e.clientX;
+     fY = e.clientY;
+    console.log(fX, fY);
+    let width = fX-iX;
+   let height = fY - iY;
+
+   tool.strokeRect(iX,iY,width, height);
+
    })
+  
+
+  
+
+
 
     
     
