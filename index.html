@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Open Board</title>
+    <style>
+        body{
+            margin: 0px;
+        }
+    </style>
 </head>
 <body>
     <h1>Canvas example</h1>
@@ -15,24 +20,45 @@
 <!-- html is inject -->
 <script>
     let canvasBoard = document.querySelector("canvas");
-    // canvasBoard.height = window.innerHeight;
-    // canvasBoard.width = window.innerWidth;
-    canvasBoard.height = 500;
-    canvasBoard.width = 600;
-    //this line gives tool to draw on that canvas
-    let tool = canvasBoard.getContext("2d");
-    //rectangle build
-    tool.fillStyle = "black";
-    //to give colour to fill
-    tool.fillRect(0, 0, 200, 200);
-    //change colour of stroke rect
-    tool.strokeStyle = "red";
-    //give boundary of rect i.e. it will draw a rect but not fill it with colour.
-    tool.strokeRect(50,50,200,200);
-    //rectangle build
-     tool.fillStyle = "yellow";
-    //to give colour to fill
-    tool.fillRect(40, 30, 120, 100);
+    canvasBoard.height = window.innerHeight;
+    canvasBoard.width = window.innerWidth;
+    // canvasBoard.height = 500;
+    // canvasBoard.width = 600;
+    // //this line gives tool to draw on that canvas
+    // let tool = canvasBoard.getContext("2d");
+    // //rectangle build
+    // tool.fillStyle = "black";
+    // //to give colour to fill
+    // tool.fillRect(0, 0, 200, 200);
+    // //change colour of stroke rect
+    // tool.strokeStyle = "red";
+    // //give boundary of rect i.e. it will draw a rect but not fill it with colour.
+    // tool.strokeRect(50,50,200,200);
+    // //rectangle build
+    //  tool.fillStyle = "yellow";
+    // //to give colour to fill
+    // tool.fillRect(40, 30, 120, 100);
+
+   let body = document.querySelector("body");
+
+   
+
+   //to get the positions when user presses the mouse
+   body.addEventListener("mousedown", function(e){
+    //    console.log(e);
+    let xPos = e.clientX;
+    let yPos = e.clientY;
+    console.log(xPos, yPos);
+   })
+
+   //to get the positions when user leaves the mouse button
+   body.addEventListener("mouseup", function(e){
+    //    console.log("mouse left");
+    let xPos = e.clientX;
+    let yPos = e.clientY;
+    console.log(xPos, yPos);
+   })
+
     
     
 
