@@ -15,6 +15,10 @@
             margin-right: 30px;
             margin-left: 30px;
         }
+
+       input{
+           border-radius: 50%;
+       }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -25,6 +29,7 @@
     <button class="colorRed">Red</button>
     <button class="colorGreen">Green</button>
     <button class="colorBlue">Blue</button>
+    <input type="color" value="#ff0000" id="colorWell">
     <!-- Drawing Board-->
     <canvas></canvas>
     
@@ -37,25 +42,26 @@
     let rectTool = document.querySelector(".fa-square");
     let lineTool = document.querySelector(".fa-grip-lines-vertical");
 
-    let redColor = document.querySelector(".colorRed");
-    let greenColor = document.querySelector(".colorGreen");
-    let blueColor = document.querySelector(".colorBlue");
+    // let redColor = document.querySelector(".colorRed");
+    // let greenColor = document.querySelector(".colorGreen");
+    // let blueColor = document.querySelector(".colorBlue");
+    let colorChoose = document.querySelector("#colorWell");
 
     let cTool = "rectTool";
 
-    let colorTool = "redColor";
+    // let colorTool = "redColor";
 
-    redColor.addEventListener("click", function(){
-        colorTool = "redColor";
-    })
+    // redColor.addEventListener("click", function(){
+    //     colorTool = "redColor";
+    // })
 
-    greenColor.addEventListener("click", function(){
-        colorTool = "greenColor";
-    })
+    // greenColor.addEventListener("click", function(){
+    //     colorTool = "greenColor";
+    // })
 
-    blueColor.addEventListener("click", function(){
-        colorTool = "blueColor";
-    })
+    // blueColor.addEventListener("click", function(){
+    //     colorTool = "blueColor";
+    // })
 
     //changing canvas ki default height
     canvasBoard.height = window.innerHeight;
@@ -95,13 +101,15 @@
     let width = fX-iX;
    let height = fY - iY;
 
-   if(colorTool == "redColor"){
-       tool.strokeStyle = "red";
-   }else if(colorTool == "greenColor"){
-       tool.strokeStyle = "green";
-   }else{
-       tool.strokeStyle = "blue";
-   }
+//    if(colorTool == "redColor"){
+//        tool.strokeStyle = "red";
+//    }else if(colorTool == "greenColor"){
+//        tool.strokeStyle = "green";
+//    }else{
+//        tool.strokeStyle = "blue";
+//    }
+
+   tool.strokeStyle = colorChoose.value;
 
    if(cTool == "rectTool"){
        tool.strokeRect(iX, iY, width, height);
