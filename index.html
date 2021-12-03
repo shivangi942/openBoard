@@ -22,6 +22,9 @@
     <!-- <h1>Canvas example</h1> -->
     <i class="fas fa-square"></i>
     <i class="fas fa-grip-lines-vertical"></i>
+    <button class="colorRed">Red</button>
+    <button class="colorGreen">Green</button>
+    <button class="colorBlue">Blue</button>
     <!-- Drawing Board-->
     <canvas></canvas>
     
@@ -34,7 +37,25 @@
     let rectTool = document.querySelector(".fa-square");
     let lineTool = document.querySelector(".fa-grip-lines-vertical");
 
+    let redColor = document.querySelector(".colorRed");
+    let greenColor = document.querySelector(".colorGreen");
+    let blueColor = document.querySelector(".colorBlue");
+
     let cTool = "rectTool";
+
+    let colorTool = "redColor";
+
+    redColor.addEventListener("click", function(){
+        colorTool = "redColor";
+    })
+
+    greenColor.addEventListener("click", function(){
+        colorTool = "greenColor";
+    })
+
+    blueColor.addEventListener("click", function(){
+        colorTool = "blueColor";
+    })
 
     //changing canvas ki default height
     canvasBoard.height = window.innerHeight;
@@ -73,6 +94,14 @@
     // console.log(fX, fY);
     let width = fX-iX;
    let height = fY - iY;
+
+   if(colorTool == "redColor"){
+       tool.strokeStyle = "red";
+   }else if(colorTool == "greenColor"){
+       tool.strokeStyle = "green";
+   }else{
+       tool.strokeStyle = "blue";
+   }
 
    if(cTool == "rectTool"){
        tool.strokeRect(iX, iY, width, height);
