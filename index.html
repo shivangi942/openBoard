@@ -29,36 +29,30 @@
 <!-- html is inject -->
 <script>
 
-
     let canvasBoard = document.querySelector("canvas");
+    
     let rectTool = document.querySelector(".fa-square");
     let lineTool = document.querySelector(".fa-grip-lines-vertical");
+
     let cTool = "rectTool";
 
     //changing canvas ki default height
     canvasBoard.height = window.innerHeight;
+    console.log("window height and width is" + window.innerHeight + " " + window.innerWidth);
     canvasBoard.width = window.innerWidth;
 
-    
-    // canvasBoard.height = 500;
-    // canvasBoard.width = 600;
     // //this line gives tool to draw on that canvas
     let tool = canvasBoard.getContext("2d");
     let body = document.querySelector("body");
-    // //rectangle build
-    // tool.fillStyle = "black";
-    // //to give colour to fill
-    // tool.fillRect(0, 0, 200, 200);
-    // //change colour of stroke rect
-    // tool.strokeStyle = "red";
-    // //give boundary of rect i.e. it will draw a rect but not fill it with colour.
-    // tool.strokeRect(50,50,200,200);
-    // //rectangle build
-    //  tool.fillStyle = "yellow";
-    // //to give colour to fill
-    // tool.fillRect(40, 30, 120, 100);
 
-  
+    //tool change logic
+    rectTool.addEventListener("click", function(){
+        cTool ="rectTool";
+    })
+
+    lineTool.addEventListener("click", function(){
+        cTool = "lineTool";
+    })  
 
    let iX, fX, iY, fY;
 
@@ -67,8 +61,7 @@
     //    console.log(e);
      iX = e.clientX;
      iY = e.clientY;
-    // console.log(iX, iY);
-    
+    // console.log(iX, iY);    
 
    })
 
@@ -77,25 +70,22 @@
     //    console.log("mouse left");
      fX = e.clientX;
      fY = e.clientY;
-    console.log(fX, fY);
+    // console.log(fX, fY);
     let width = fX-iX;
    let height = fY - iY;
 
-//    tool.strokeRect(iX,iY,width, height);
-tool.beginPath();
-            tool.moveTo(iX, iY);
-            tool.lineTo(fX, fY);
-            tool.stroke();
-            console.log("Pencil tool is pending")
+   if(cTool == "rectTool"){
+       tool.strokeRect(iX, iY, width, height);
+   } else {       
+       //    tool.strokeRect(iX,iY,width, height);
+       tool.beginPath();
+       tool.moveTo(iX, iY);
+       tool.lineTo(fX, fY);
+       tool.stroke();
+    //    console.log("Pencil tool is pending");
+    }
 
-   })
-  
-
-  
-
-
-
-    
+   })   
     
 
 </script>
