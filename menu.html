@@ -7,15 +7,59 @@
     <title>Toolbar</title>
 
     <style>
+
+        .toolbar{
+            display: flex;
+            /* height: 80px; */
+            width: 80vw;
+            margin: 0 auto;
+            justify-content: space-evenly;
+                  
+        }
+        /* .tool{
+            height: 50px;
+        } */
+        img{
+            height: 30px;
+            width: 30px;
+            margin: 1rem;
+        }
+
+        .colour{
+            border: 1px solid black;
+            border-radius: 50%;
+            height: 30px;
+            width: 30px;
+            margin: 0.2rem;
+        }
+
+        .colour-container{
+            display: flex;
+            height: 40px;
+            margin: 0.5rem 0;
+            width: 20vw;
+            justify-content: space-between;
+        }
+
+        .red{
+            background-color: red;
+        }
+        .blue{
+            background-color: blue;
+        }
+        .green{
+            background-color: greenyellow;
+        }
+
         
     </style>
 </head>
 <body>
-    <div class="toobar">
+    <div class="toolbar">
         <div class="tool">
             <img src="/resources/NewIcons/Black_Pencil.svg">
         </div>
-        <div class="too">
+        <div class="tool">
             <img src="/resources/NewIcons/Eraser.svg">
         </div>
         <div class="tool">
@@ -24,7 +68,7 @@
         <div class="tool">
             <img src="/resources/NewIcons/StickyNote.svg">
         </div>
-        <div class="tool">
+        <div class="tool colour-container">
             <div class="colour red"></div>
             <div class="colour blue"></div>
             <div class="colour green"></div>
