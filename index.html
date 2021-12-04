@@ -105,31 +105,31 @@
     //    console.log("mouse left");
      fX = e.clientX;
      fY = e.clientY;
-    // console.log(fX, fY);
-//     let width = fX-iX;
-//    let height = fY - iY;
+    console.log(fX, fY);
+    let width = fX-iX;
+   let height = fY - iY;
 
-// //    if(colorTool == "redColor"){
-// //        tool.strokeStyle = "red";
-// //    }else if(colorTool == "greenColor"){
-// //        tool.strokeStyle = "green";
-// //    }else{
-// //        tool.strokeStyle = "blue";
-// //    }
+//    if(colorTool == "redColor"){
+//        tool.strokeStyle = "red";
+//    }else if(colorTool == "greenColor"){
+//        tool.strokeStyle = "green";
+//    }else{
+//        tool.strokeStyle = "blue";
+//    }
 
-//    tool.strokeStyle = colorChoose.value;
-// //    tool.lineWidth = 5;
+   tool.strokeStyle = colorChoose.value;
+//    tool.lineWidth = 5;
 
-//    if(cTool == "rectTool"){
-//        tool.strokeRect(iX, iY, width, height);
-//    } else {       
-//        //    tool.strokeRect(iX,iY,width, height);
-//        tool.beginPath();
-//        tool.moveTo(iX, iY);
-//        tool.lineTo(fX, fY);
-//        tool.stroke();
-//     //    console.log("Pencil tool is pending");
-//     }
+   if(cTool == "rectTool"){
+       tool.strokeRect(iX, iY, width, height);
+   } else {       
+       //    tool.strokeRect(iX,iY,width, height);
+       tool.beginPath();
+       tool.moveTo(iX, iY);
+       tool.lineTo(fX, fY);
+       tool.stroke();
+    //    console.log("Pencil tool is pending");
+    }
 
 drawingMode = false;
 
